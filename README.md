@@ -1,319 +1,107 @@
-# DevForge - Platform Engineering Command Center
-
-> **The next-generation platform engineering portal that combines AI intelligence, 3D visualizations, and seamless integrations.**
-
-<div align="center">
-
-![DevForge Logo](https://via.placeholder.com/200x80/6B46C1/FFFFFF?text=DevForge)
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Next.js](https://img.shields.io/badge/Next.js-000000?logo=next.js&logoColor=white)](https://nextjs.org/)
-[![Prisma](https://img.shields.io/badge/Prisma-3982CE?logo=Prisma&logoColor=white)](https://prisma.io/)
-[![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)](https://www.docker.com/)
-
-</div>
-
-## ✨ Features
-
-### 🌌 Revolutionary 3D Service Catalog
-- **Interactive 3D Universe**: Navigate your services in a stunning 3D galaxy visualization
-- **Real-time Dependencies**: See service connections as flowing energy streams
-- **Health Monitoring**: Visual health indicators with predictive analytics
-- **Smart Positioning**: AI-powered service layout optimization
-
-### 🤖 AI-Powered Intelligence
-- **Natural Language Queries**: "Show me services with high error rates"
-- **Predictive Analytics**: Anticipate issues before they become problems
-- **Smart Recommendations**: AI-driven optimization suggestions
-- **Knowledge Management**: Semantic search through all documentation
-
-### ⚡ Lightning-Fast Operations
-- **One-Click Actions**: Deploy, scale, and manage with single commands
-- **Visual Workflow Builder**: Create complex automations with drag & drop
-- **Real-time Collaboration**: Work together like you're in the same room
-- **Voice Commands**: Hands-free platform operations
-
-### 📊 Advanced Analytics
-- **DORA Metrics**: Track deployment frequency, lead time, and reliability
-- **Custom Scorecards**: Define and monitor your own quality metrics
-- **Incident Intelligence**: Smart incident detection and resolution
-- **Cost Optimization**: Real-time spend analysis and recommendations
-
-## 🏗️ Architecture
-
-DevForge is built as a modern microservices architecture with the following components:
-
-```
-┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐
-│   Web App       │  │   MCP Server     │  │   AI Service    │
-│  (Next.js 14)   │  │ (AI Integration) │  │  (FastAPI)      │
-└─────────────────┘  └──────────────────┘  └─────────────────┘
-         │                     │                     │
-         └─────────────────────┼─────────────────────┘
-                               │
-         ┌─────────────────────┼─────────────────────┐
-         │                     │                     │
-┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐
-│  Realtime API   │  │   PostgreSQL     │  │     Redis       │
-│  (WebSockets)   │  │   + PGVector     │  │   (Caching)     │
-└─────────────────┘  └──────────────────┘  └─────────────────┘
-```
-
-### Core Technologies
-
-- **Frontend**: Next.js 14, React 18, TypeScript, Tailwind CSS
-- **3D Graphics**: Three.js, React Three Fiber, Drei
-- **Animation**: Framer Motion, GSAP, Lottie
-- **Backend**: Node.js, Fastify, tRPC, Prisma ORM
-- **Database**: PostgreSQL with PGVector for AI embeddings
-- **AI/ML**: OpenAI GPT-4, LangChain, Vector Search
-- **Real-time**: Socket.io, Redis Pub/Sub
-- **Auth**: NextAuth.js with OAuth2/SAML support
-- **DevOps**: Docker, Docker Compose, Turborepo
-
-## 🚀 Quick Start
-
-### Prerequisites
-
-- Node.js 18+ 
-- Docker & Docker Compose
-- pnpm (recommended) or npm
-- OpenAI API key (for AI features)
-
-### Option 1: Automated Setup (Recommended)
-
-```bash
-# Clone the repository
-git clone <repository-url>
-cd nexuscore
-
-# Run the setup script
-./scripts/setup.sh
-```
-
-### Option 2: Manual Setup
-
-```bash
-# Install dependencies
-pnpm install
-
-# Setup environment variables
-cp .env.example .env
-# Edit .env with your configuration
-
-# Start database services
-docker-compose up -d postgres redis
-
-# Setup database
-pnpm run db:generate
-pnpm run db:push
-
-# Build applications
-pnpm run build
-
-# Start development servers
-pnpm run dev
-```
-
-### Option 3: Full Docker Setup
-
-```bash
-# Start all services with Docker
-docker-compose up -d
-
-# The application will be available at:
-# - Web App: http://localhost:3000
-# - MCP Server: http://localhost:8080
-# - Real-time API: http://localhost:8081
-```
-
-## 🔧 Development
-
-### Project Structure
-
-```
-nexuscore/
-├── apps/
-│   ├── web/                 # Main Next.js application
-│   ├── mcp-server/          # Model Context Protocol server
-│   ├── ai-service/          # AI processing service
-│   └── realtime/            # WebSocket service
-├── packages/
-│   ├── ui/                  # Shared UI components
-│   ├── database/            # Prisma schema & client
-│   ├── integrations/        # External service integrations
-│   └── plugins/             # Plugin system
-├── docker/                  # Docker configurations
-└── infrastructure/          # Deployment configurations
-```
-
-### Available Scripts
-
-```bash
-# Development
-pnpm run dev              # Start all services in development mode
-pnpm run dev:web          # Start only the web application
-pnpm run dev:mcp          # Start only the MCP server
-
-# Building
-pnpm run build            # Build all applications
-pnpm run build:web        # Build web application
-pnpm run typecheck        # Run TypeScript checks
-
-# Database
-pnpm run db:generate      # Generate Prisma client
-pnpm run db:push          # Push schema to database
-pnpm run db:migrate       # Run database migrations
-pnpm run db:seed          # Seed database with sample data
-pnpm run db:studio        # Open Prisma Studio
-
-# Testing
-pnpm run test             # Run all tests
-pnpm run test:watch       # Run tests in watch mode
-pnpm run e2e              # Run end-to-end tests
-
-# Linting & Formatting
-pnpm run lint             # Run ESLint
-pnpm run lint:fix         # Fix ESLint issues
-pnpm run format           # Format code with Prettier
-```
-
-## 🎨 Design System
-
-DevForge uses a custom "Cosmic Operating System" design system:
-
-### Color Palette
-- **Deep Space**: `#0A0E27` - Primary background
-- **Nebula Purple**: `#6B46C1` - Primary brand color
-- **Plasma Blue**: `#0EA5E9` - Secondary accent
-- **Quantum Green**: `#10B981` - Success states
-- **Solar Flare**: `#F59E0B` - Warning states
-- **Stardust**: `rgba(255, 255, 255, 0.1)` - Glass effects
-
-### Typography
-- **Headers**: Space Grotesk with glow effects
-- **Body**: Inter with variable weights
-- **Code**: JetBrains Mono with syntax highlighting
-
-### Effects
-- Glassmorphism with animated gradients
-- Holographic text and overlays
-- Particle systems for interactions
-- 3D transformations and parallax
-
-## 🔌 Integrations
-
-DevForge supports seamless integration with popular platform tools:
-
-### Version Control
-- GitHub, GitLab, Bitbucket
-- Real-time webhook processing
-- Automated service discovery
-
-### Cloud Providers
-- AWS, Google Cloud, Azure
-- Cost tracking and optimization
-- Resource monitoring
-
-### Monitoring & Observability
-- Datadog, Prometheus, Grafana
-- Custom metrics and dashboards
-- Intelligent alerting
-
-### Communication
-- Slack, Microsoft Teams
-- Automated notifications
-- Incident management
-
-### CI/CD
-- GitHub Actions, Jenkins, CircleCI
-- Deployment tracking
-- Pipeline visualization
-
-## 🧩 Plugin System
-
-Extend DevForge with custom plugins:
-
-```typescript
-interface Plugin {
-  id: string
-  name: string
-  version: string
-  
-  // Lifecycle hooks
-  onInstall(): Promise<void>
-  onActivate(): Promise<void>
-  
-  // Extension points
-  catalogExtensions?: CatalogExtension[]
-  workflowNodes?: WorkflowNode[]
-  scorecardRules?: ScorecardRule[]
-  
-  // UI Components
-  pages?: PageDefinition[]
-  widgets?: WidgetDefinition[]
-}
-```
-
-## 🛡️ Security
-
-DevForge implements enterprise-grade security:
-
-- **Authentication**: OAuth2, SAML, Multi-factor authentication
-- **Authorization**: Role-based and attribute-based access control
-- **Data Protection**: Encryption at rest and in transit
-- **Audit Logging**: Comprehensive activity tracking
-- **Compliance**: SOC 2, GDPR, HIPAA ready
-
-## 📈 Performance
-
-Built for scale and performance:
-
-- **Page Load**: < 1s first contentful paint
-- **API Response**: < 100ms (p95)
-- **Real-time Updates**: < 50ms latency
-- **3D Rendering**: 60 FPS smooth animations
-- **Concurrent Users**: 10,000+ supported
-
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
-
-### Development Setup
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Make your changes and add tests
-4. Commit your changes: `git commit -m 'Add amazing feature'`
-5. Push to your branch: `git push origin feature/amazing-feature`
-6. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- [Backstage](https://backstage.io/) - Inspiration for the catalog concept
-- [Port](https://getport.io/) - Inspiration for the no-code IDP approach
-- [Three.js](https://threejs.org/) - Amazing 3D graphics library
-- [Next.js](https://nextjs.org/) - The React framework for production
-- [Prisma](https://prisma.io/) - Next-generation ORM
-
-## 📞 Support
-
-- 📚 [Documentation](https://docs.devforge.dev)
-- 💬 [Discord Community](https://discord.gg/devforge)
-- 🐛 [Issue Tracker](https://github.com/devforge/nexuscore/issues)
-- 📧 [Email Support](mailto:support@devforge.dev)
+# NexusCore
+
+An internal developer portal built around an MCP server: a service catalog, workflow
+engine, knowledge base and analytics layer that an AI coding agent can query directly
+over the Model Context Protocol, with a Next.js portal on top.
+
+The interesting part is the MCP server, not the web UI. Most developer portals expose
+their catalog to humans through a dashboard; this one also exposes it to an agent as
+eleven typed tools, so "which services depend on the payments API and what's their
+error rate" is answerable from inside an editor.
 
 ---
 
-<div align="center">
+## Status
 
-**Made with ❤️ by the DevForge Team**
+**Prototype — the MCP server is the built part; the portal is a shell.** Last worked
+on 10 September 2025. Not currently running anywhere.
 
-*Transforming Platform Engineering, One Galaxy at a Time*
+| | |
+|---|---|
+| Size | ~4,800 lines TypeScript, plus a 620-line Prisma schema |
+| Built and working | MCP server (11 tools across 4 modules), database schema, auth + setup flow |
+| Scaffolded only | Web portal has one page (`/`); no catalog, workflow or analytics screens |
+| Not started | The `ai-service` and `realtime` services have Dockerfiles but no source |
+| Tests | None |
+| Verified | Never run end to end. `pnpm install` and `docker compose up` are untested from a clean checkout |
 
-</div>
+### What actually exists
+
+**`apps/mcp-server`** — ~2,600 lines. A stdio MCP server exposing eleven tools:
+
+| Module | Tools |
+|---|---|
+| `knowledge/knowledge-base.ts` | `search_knowledge`, `add_knowledge` |
+| `services/service-catalog.ts` | `get_service_info`, `list_services`, `get_service_dependencies` |
+| `workflows/workflow-engine.ts` | `execute_workflow`, `get_workflow_status` |
+| `analytics/analytics.ts` | `get_service_metrics`, `get_incidents`, `analyze_platform_health`, `natural_language_query` |
+
+**`packages/database`** — a 620-line Prisma schema covering 16 models: `User`, `Team`,
+`TeamMember`, `Service`, `Dependency`, `Workflow`, `WorkflowExecution`, `Action`,
+`Scorecard`, `ServiceScorecard`, `Metric`, `Deployment`, `Knowledge`, `KnowledgeRelation`,
+`Incident`, `Integration`. This is the most thought-through artifact in the repo — the
+data model for a full portal is there even where the screens are not.
+
+**`apps/web`** — ~2,200 lines. Next.js 14 App Router. One page (`/`) composed of a hero,
+a stats overview, a quick-actions panel, a Three.js "service galaxy" and a recent-activity
+feed. Four API routes: NextAuth, health, and a two-step setup flow. NextAuth with a
+credentials provider, and middleware gating routes behind a session.
+
+### What does not exist
+
+The `/services`, `/workflows`, `/analytics` and `/knowledge` screens implied by the
+data model. Deployment integrations. Any test.
+
+---
+
+## Stack
+
+Next.js 14 · React 18 · TypeScript · Tailwind · Three.js / React Three Fiber ·
+NextAuth · Prisma · PostgreSQL · Redis · Model Context Protocol SDK ·
+Turborepo + pnpm workspaces · Docker Compose · Caddy
+
+---
+
+## Running it
+
+```bash
+pnpm install
+cp .env.example .env          # set DATABASE_URL and NEXTAUTH_SECRET
+docker compose -f docker-compose.dev.yml up -d postgres redis
+pnpm run db:generate && pnpm run db:push
+pnpm run dev
+```
+
+Helper scripts wrap the same steps: `./scripts/dev-start.sh`, `dev-stop.sh`,
+`dev-restart.sh`.
+
+The MCP server runs over stdio and is registered with an MCP client rather than
+started directly:
+
+```bash
+pnpm --filter mcp-server build
+node apps/mcp-server/dist/index.js
+```
+
+---
+
+## Layout
+
+```
+apps/
+  web/           Next.js portal — 1 page, 4 API routes, 8 components
+  mcp-server/    MCP stdio server — 11 tools over 4 domain modules
+packages/
+  database/      Prisma schema (16 models) + client export
+docker/          Dockerfiles per service (ai-service and realtime are empty shells)
+scripts/         dev-start / dev-stop / dev-restart / setup
+```
+
+---
+
+## Notes
+
+Some strings inside the repo still say "DevForge" — an earlier working name, and a
+different project from the `devforge` repo alongside this one.
+
+MIT licensed.
